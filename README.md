@@ -52,4 +52,17 @@ And input your target deck in single or double quotations here:
 result = cn.invoke(action='addNote', note={
             'deckName': 'your_target_deck',
 ```
-* AnkiConnect has a large number of (actions)[https://github.com/FooSoft/anki-connect#card-actions] that could be added into this script if you are familiar with Python and have more complicated requirements for your cards than me.
+* AnkiConnect has a large number of (actions)[https://github.com/FooSoft/anki-connect#card-actions] that could be added into this script if you are familiar with Python and have more complicated requirements for your cards than me. If you require Cloze cards rather than Basic cards, tags or want to open the 'Add card dialog' rather than do it automatically, these can all be added here:
+```
+result = cn.invoke(action='addNote', note={
+            'deckName': args.deck,
+            'modelName': 'Basic',
+            'fields': {
+                'Front': args.input,
+                'Back': translation,
+            },
+            'options': {
+                'closeAfterAdding': True,
+            }
+            })
+```
