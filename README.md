@@ -1,4 +1,4 @@
-# deepanki
+# DeepAnki
 
 ## Description
 This is a Python script to translate text and add a new card to Anki with the translation, using the [DeepL API](https://www.deepl.com/docs-api) and [AnkiConnect](https://github.com/FooSoft/anki-connect).
@@ -39,7 +39,7 @@ Success! Note ID: 1628179552022 added
 ```
 
 ## Recommendations
-* The addon (Minimize to tray)[https://ankiweb.net/shared/info/85158043] is useful to keep Anki open but out of the way. The script will create a new card with AnkiConnect and does not require any input from the main Anki program
+* The addon [Minimize to tray](https://ankiweb.net/shared/info/85158043) is useful to keep Anki open but out of the way. The script will create a new card with AnkiConnect and does not require any input from the main Anki program
 * If you intend to download this script and use it yourself, you can easily remove the **.env** and copy your DeepL API Authentication Key directly into *connection.py* here, which will make the script execute marginally faster:
 ```
         data = {'auth_key': 'your_auth_key',
@@ -54,7 +54,7 @@ And input your target deck in single or double quotations here:
 result = cn.invoke(action='addNote', note={
             'deckName': 'your_target_deck',
 ```
-* AnkiConnect has a large number of (actions)[https://github.com/FooSoft/anki-connect#card-actions] that could be added into this script if you are familiar with Python and have more complicated requirements for your cards than me. If you require Cloze cards rather than Basic cards, tags or want to open the 'Add card dialog' rather than do it automatically, these can all be added here:
+* AnkiConnect has a large number of [actions](https://github.com/FooSoft/anki-connect#card-actions) that could be added into this script if you are familiar with Python and have more complicated requirements for your cards than me. If you require Cloze cards rather than Basic cards, tags or want to open the 'Add card dialog' rather than do it automatically, these can all be added here:
 ```
 result = cn.invoke(action='addNote', note={
             'deckName': args.deck,
