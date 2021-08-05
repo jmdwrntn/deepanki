@@ -3,6 +3,8 @@
 ## Description
 This is a Python script to translate text and add a new card to Anki with the translation, using the [DeepL API](https://www.deepl.com/docs-api) and [AnkiConnect](https://github.com/FooSoft/anki-connect).
 
+I created this script as I watch YouTube or Twitch in my language of study (Finnish) for immersion and regularly come across more colloquial words or phrases. DeepL translation has proved far more capable than Google, particularly for Finnish. I considered a GUI or Anki addon but found a simple command line tool was quickest, allowing translation and adding to a new Anki card without having to change tabs or open windows (beyond terminal).
+
 ## Installation
 * Install Python 3
 * Clone this repo
@@ -35,3 +37,19 @@ Several examples are shown below.
 Success! Translation: How much does it cost
 Success! Note ID: 1628179552022 added
 ```
+
+## Recommendations
+* The addon (Minimize to tray)[https://ankiweb.net/shared/info/85158043] is useful to keep Anki open but out of the way. The script will create a new card with AnkiConnect and does not require any input from the main Anki program
+* If you intend to only use one deck, you can easily remove or comment out this argument like so:
+```
+# ap.add_argument(
+                '--deck', '--dk',
+                type=str,
+                help='Type the target deck name for the new card')
+```
+And input your target deck in single or double quotations here:
+```
+result = cn.invoke(action='addNote', note={
+            'deckName': 'your_target_deck',
+```
+* AnkiConnect has a large number of (actions)[https://github.com/FooSoft/anki-connect#card-actions] that could be added into this script if you are familiar with Python and have more complicated requirements for your cards than me.
