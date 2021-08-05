@@ -42,23 +42,17 @@ Success! Note ID: 1628179552022 added
 * The addon (Minimize to tray)[https://ankiweb.net/shared/info/85158043] is useful to keep Anki open but out of the way. The script will create a new card with AnkiConnect and does not require any input from the main Anki program
 * If you intend to download this script and use it yourself, you can easily remove the **.env** and copy your DeepL API Authentication Key directly into *connection.py* here, which will make the script execute marginally faster:
 ```
-    def translate(self, text, language):
-        # Arguements for API auth key,
-        # text for translation and target language
-        url = 'https://api-free.deepl.com/v2/translate?'
-        **data = {'auth_key': os.environ['AUTH_KEY'],**
+        data = {'auth_key': 'your_auth_key',
 ```
 * If you intend to only use one deck, you can easily delete or comment out this argument:
 ```
 ap.add_argument(
                 '--deck', '--dk',
-                type=str,
-                help='Type the target deck name for the new card')
 ```
 And input your target deck in single or double quotations here:
 ```
 result = cn.invoke(action='addNote', note={
-            **'deckName': 'your_target_deck',**
+            'deckName': 'your_target_deck',
 ```
 * AnkiConnect has a large number of (actions)[https://github.com/FooSoft/anki-connect#card-actions] that could be added into this script if you are familiar with Python and have more complicated requirements for your cards than me. If you require Cloze cards rather than Basic cards, tags or want to open the 'Add card dialog' rather than do it automatically, these can all be added here:
 ```
@@ -73,4 +67,18 @@ result = cn.invoke(action='addNote', note={
                 'closeAfterAdding': True,
             }
             })
+```
+
+## Help
+```
+usage: deepanki.py [-h] [--input INPUT] [--target_lang TARGET_LANG] [--deck DECK]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input INPUT, --in INPUT
+                        Paste or type your input text for translation, which will become your card Front
+  --target_lang TARGET_LANG, --tl TARGET_LANG
+                        Type the target language for the translation
+  --deck DECK, --dk DECK
+                        Type the target deck name for the new card
 ```
