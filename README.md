@@ -20,7 +20,7 @@ I created this script as I watch YouTube or Twitch in my language of study (Finn
 ## Usage
 Several examples are shown below.
 
-* The standard arguments (for target_lang formatting see currently available languages [Here](https://www.deepl.com/docs-api/translating-text/request/))
+* The standard arguments (for target_lang formatting see currently available languages [here](https://www.deepl.com/docs-api/translating-text/request/))
 ```
 .\deepanki.py --input Paljonko --target_lang EN-GB --deck test1
 ```
